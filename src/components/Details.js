@@ -1,41 +1,45 @@
-import React from 'react'
-import Card from './Card'
-import { useContext } from 'react';
-import ThemeContext from '../context/ThemeContext';
+import React from "react";
+import Card from "./Card";
+import { useContext } from "react";
+import ThemeContext from "../context/ThemeContext";
 
-const Details = ({details}) => {
-    const {darkMode} = useContext(ThemeContext);
-    const detailsList = {
-        name: "Name",
-        country: "Country",
-        currency: "Currency",
-        exchange: "Exchange",
-        ipo: "IPO Date",
-        marketCapitalization: "Market Capitalisation",
-        finnhubIndustry: "Industry",
-    }
+const Details = ({ details }) => {
+  const { darkMode } = useContext(ThemeContext);
+  const detailsList = {
+    name: "Name",
+    country: "Country",
+    currency: "Currency",
+    exchange: "Exchange",
+    ipo: "IPO Date",
+    marketCapitalization: "Market Capitalisation",
+    finnhubIndustry: "Industry",
+  };
 
-    const convertMilToBill = (num) => {
-        return (num / 1000).toFixed(2);
-    }
+  const convertMilToBill = (num) => {
+    return (num / 1000).toFixed(2);
+  };
   return (
     <Card>
-        <ul className={`w-full h-full flex flex-col justify-between divide-y-1 ${
-            darkMode ? "divide-gray-800" : null
-            }`}>
-            {Object.keys(detailsList).map((item) => {
-                return <li key={item} className='flex-1 flex justify-between items-center'>
-                    <span>{detailsList[item]}</span>
-                    <span>
-                        {item === "marketCapitalization" 
-                        ? `${convertMilToBill(details[item])}B` :
-                        details[item]}
-                    </span>
-                </li>
-            })}
-        </ul>
+      <ul
+        className={`w-full h-full flex flex-col justify-between divide-y-1 ${
+          darkMode ? "divide-gray-800" : null
+        }`}
+      >
+        {Object.keys(detailsList).map((item) => {
+          return (
+            <li key={item} className="flex-1 flex justify-between items-center">
+              <span>{detailsList[item]}</span>
+              <span>
+                {item === "marketCapitalization"
+                  ? `${convertMilToBill(details[item])}B`
+                  : details[item]}
+              </span>
+            </li>
+          );
+        })}
+      </ul>
     </Card>
-  )
-}
+  );
+};
 
-export default Details
+export default Details;
