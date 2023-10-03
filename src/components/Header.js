@@ -10,10 +10,25 @@ const Header = () => {
           <ThemeIcon />
         </div>
         <div className="md:col-span-1 row-span-1 flex items-center">
-          <h1 className="text-5xl">StockX</h1>
+          <Search />
         </div>
         <div className="md:col-span-1 row-span-1 flex items-center">
-          <Search />
+          <h1 className="text-3xl">Home</h1>
+        </div>
+        <div className="md:col-span-1 row-span-1 flex items-center">
+          <h1 className="text-3xl">Portfolio</h1>
+        </div>
+        <div className="md:col-span-1 row-span-1 flex items-center">
+          <h1 className="text-3xl">Stocks</h1>
+        </div>
+        <div className="md:col-span-1 row-span-1 flex items-center">
+          <h1 className="text-3xl">Crypto</h1>
+        </div>
+        <div className="md:col-span-1 row-span-1 flex items-center">
+          <h1 className="text-3xl">News</h1>
+        </div>
+        <div className="md:col-span-1 row-span-1 flex items-center">
+          <h1 className="text-3xl">Profile</h1>
         </div>
         {/* Add three empty rows */}
         <div className="md:col-span-1 row-span-1"></div>

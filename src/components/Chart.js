@@ -61,7 +61,6 @@ const Chart = ({ name }) => {
         );
         setData(formatData(result));
       } catch (error) {
-        setImmediate([]);
         console.log(error);
       }
     };

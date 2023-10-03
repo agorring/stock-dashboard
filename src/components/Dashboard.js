@@ -3,6 +3,7 @@ import Header from "./Header";
 import Details from "./Details";
 import Overview from "./Overview";
 import Chart from "./Chart";
+import Feed from "./Feed";
 import { useContext, useEffect, useState } from "react";
 import ThemeContext from "../context/ThemeContext";
 import StockContext from "../context/StockContext";
@@ -40,16 +41,18 @@ const Dashboard = () => {
   }, [stockSymbol]);
   return (
     <div
-      className={`h-screen grid grid-cols-9 grid-rows-8 md:grid-rows-7 xl:grid-rows-5 auto-rows-fr gap-6 p-10 font-quicksand bg-neutral-100 ${
+      className={`h-screen grid grid-cols-9 grid-rows-10 auto-rows-fr gap-6 p-10 font-quicksand bg-neutral-100 ${
         darkMode ? "bg-black text-gray-300" : "bg-neutral-100"
       }`}
     >
       <div className="col-span-2 row-span-8 flex justify-start">
         <Header />
       </div>
-      <div className="md:col-span-4 row-span-4 flex justify-center items-center">
-        <Chart name={stockDetails.name} />
+
+      <div className="col-span-4 row-span-6 flex justify-start">
+        <Feed stockDetails={stockDetails} />
       </div>
+
       <div className="md:col-span-3 row-span-4">
         <div className="row-span-2 xl:row-span-2 mb-4">
           <Overview
