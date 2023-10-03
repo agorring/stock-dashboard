@@ -8,6 +8,7 @@ import { useContext, useEffect, useState } from "react";
 import ThemeContext from "../context/ThemeContext";
 import StockContext from "../context/StockContext";
 import { fetchQuote, fetchStockDetails } from "../api/stock-api";
+import Search from "./Search";
 
 const Dashboard = () => {
   const { darkMode } = useContext(ThemeContext);
@@ -41,20 +42,25 @@ const Dashboard = () => {
   }, [stockSymbol]);
   return (
     <div
-      className={`h-screen grid grid-cols-9 grid-rows-10 auto-rows-fr gap-6 p-10 font-quicksand bg-neutral-100 ${
-        darkMode ? "bg-black text-gray-300" : "bg-neutral-100"
+      className={`h-screen grid grid-cols-9 grid-rows-10 auto-rows-fr gap-6 p-10 font-quicksand ${
+        darkMode ? "bg-black text-gray-300" : "bg-white"
       }`}
     >
       <div className="col-span-2 row-span-8 flex justify-start">
         <Header />
       </div>
 
-      <div className="col-span-4 row-span-6 flex justify-start">
-        <Feed stockDetails={stockDetails} />
+      <div className="col-span-4 row-span-6 flex flex-col justify-start">
+        <div className="mb-4">
+          <Search />
+        </div>
+        <div className="overflow-y-auto">
+          <Feed stockDetails={stockDetails} />
+        </div>
       </div>
 
-      <div className="md:col-span-3 row-span-4">
-        <div className="row-span-2 xl:row-span-2 mb-4">
+      <div className="col-span-3 row-span-6 flex flex-col justify-start">
+        <div className="mb-4">
           <Overview
             symbol={stockSymbol}
             price={quote.pc}
@@ -63,7 +69,7 @@ const Dashboard = () => {
             currency={stockDetails.currency}
           />
         </div>
-        <div className="row-span-2 xl:row-span-2">
+        <div className="mb-4">
           <Details details={stockDetails} />
         </div>
       </div>

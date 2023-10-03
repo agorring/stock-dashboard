@@ -11,8 +11,8 @@ const ThemeIcon = () => {
 
   return (
     <button
-      className={`rounded-lg border-1 border-neutral-400 p-2 shadow-lg ${
-        darkMode ? "shadow-gray-800" : null
+      className={`rounded-lg border-2  p-2 shadow-lg ${
+        darkMode ? "shadow-gray-800 border-gray-800" : "border-neutral-400"
       }
         transition duration-300 hover:scale-125
         `}
