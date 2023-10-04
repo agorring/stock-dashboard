@@ -1,7 +1,5 @@
 import React from "react";
-import Search from "./Search";
 import ThemeIcon from "./ThemeIcon";
-import { HomeIcon, FolderIcon } from "@heroicons/react/solid";
 
 const Header = () => {
   return (
