@@ -1,5 +1,4 @@
 A stock dashboard app created using React and Tailwind.
-Built upon the Stock Dashboard App by Dom The Engineer on YouTube: 
 
 ## Acknowledgements
 
